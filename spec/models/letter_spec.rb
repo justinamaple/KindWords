@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Letter, type: :model do
   subject do
-    account = Account.new(email: 'test@test.com', password: 'Anything')
+    account = Account.create(email: 'test@test.com', password: 'Anything')
     described_class.new(account: account, content: 'Anything')
   end
 

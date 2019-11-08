@@ -1,5 +1,6 @@
 class Account < ApplicationRecord
   has_many :letters
+  has_many :responses, through: :letters
 
   has_secure_password
   validates :email, presence: true

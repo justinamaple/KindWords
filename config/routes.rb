@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :responses
   post '/login' => 'accounts#login'
   post '/signup' => 'accounts#create'
   resources :letters
