@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :accounts
+  post '/login' => 'accounts#login'
+  post '/signup' => 'accounts#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
