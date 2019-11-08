@@ -9,6 +9,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Account.destroy_all
+Letter.destroy_all
 
 account1 = Account.create(email: 'justinamaple@gmail.com', password: 'asdf')
+account1.letters.create(content: 'pretty')
+account1.letters.create(content: 'much')
+account1.letters.create(content: 'anything')
+
 account2 = Account.create(email: 'kara@gmail.com', password: 'fdsa')

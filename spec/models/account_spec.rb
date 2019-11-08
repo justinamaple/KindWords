@@ -29,7 +29,7 @@ RSpec.describe Account, type: :model do
   context 'when email is not unique' do
     before { described_class.create!(email: 'test@test.com', password: 'Anything') }
     it 'is not valid without a unique email' do
-      expect(subject).to be_invalid
+      expect(subject).to_not be_valid
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_024903) do
+ActiveRecord::Schema.define(version: 2019_11_08_044919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,14 @@ ActiveRecord::Schema.define(version: 2019_11_08_024903) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "letters", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.string "content"
+    t.boolean "burned", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_letters_on_account_id"
+  end
+
+  add_foreign_key "letters", "accounts"
 end

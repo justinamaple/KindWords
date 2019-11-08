@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  has_many :letters
+
   has_secure_password
   validates :email, presence: true
   validates :email, uniqueness: true
