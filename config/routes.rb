@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/letters' => 'letters#index'
   get '/letters/:id' => 'letters#show'
   post '/letters' => 'letters#create'
-  resources :responses
-  
+  get '/responses/:id' => 'responses#letter'
+  get '/response/:id' => 'responses#show'
+  post '/responses' => 'responses#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
