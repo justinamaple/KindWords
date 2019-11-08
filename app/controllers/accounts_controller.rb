@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
     if @account&.authenticate(params[:password])
       render json: @account
     else
-      render json: nil
+      render json: @account.errors
     end
   end
 
@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
     if @account.save
       render json: @account
     else
-      render json: nil
+      render json: @account.errors
     end
   end
 end
