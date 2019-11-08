@@ -10,4 +10,5 @@
 
 Account.destroy_all
 
-Account.create(email: 'justinamaple@gmail.com', password: 'asdf', icon: 'J')
+account1 = Account.create(email: 'justinamaple@gmail.com', password: 'asdf')
+account2 = Account.create(email: 'kara@gmail.com', password: 'fdsa')
