@@ -7,12 +7,5 @@ Rails.application.routes.draw do
      resources :responses, only: [:index, :create, :show]
   end 
 
-  # get '/letters' => 'letters#index'
-  # get '/letters/:id' => 'letters#show'
-  # post '/letters' => 'letters#create'
-  
-  # get '/responses/:id' => 'responses#letter'
-  # get '/responses/:id' => 'responses#show'
-  # post '/responses' => 'responses#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
