@@ -4,9 +4,9 @@ class ResponsesController < ApplicationController
     render json: @response
   end
 
-  def letter
-    render json: Letter.find(params[:id]).responses
-  end
+  # def letter
+  #   render json: Letter.find(params[:id]).responses
+  # end
 
   def create
     @response = Response.new(
