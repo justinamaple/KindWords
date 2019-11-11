@@ -1,5 +1,4 @@
 class Account < ApplicationRecord
-  serialize :letters_seen, JSON
   has_many :letters
   has_many :responses, through: :letters
   has_many :seens
