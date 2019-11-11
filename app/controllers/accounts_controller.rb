@@ -24,9 +24,11 @@ class AccountsController < ApplicationController
     end
   end
 
-  def unseen
+  def seen
     @account = Account.find(params[:id])
     letters_seen = @account.seens.pluck(:letter_id)
+    letters = Letter.all
+
     render json: letters_seen
   end
 end

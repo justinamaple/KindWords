@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post '/login' => 'accounts#login'
   post '/signup' => 'accounts#create'
-  get '/accounts/:id/unseen' => 'accounts#unseen'
+  get '/accounts/:id/seen' => 'accounts#seen'
 
   resources :letters, only: [:index, :create] do
     resources :responses, only: [:index, :create, :show]
