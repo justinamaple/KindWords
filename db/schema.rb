@@ -46,7 +46,18 @@ ActiveRecord::Schema.define(version: 2019_11_11_213217) do
     t.index ["letter_id"], name: "index_responses_on_letter_id"
   end
 
+  create_table "seens", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "letter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_seens_on_account_id"
+    t.index ["letter_id"], name: "index_seens_on_letter_id"
+  end
+
   add_foreign_key "letters", "accounts"
   add_foreign_key "responses", "accounts"
   add_foreign_key "responses", "letters"
+  add_foreign_key "seens", "accounts"
+  add_foreign_key "seens", "letters"
 end

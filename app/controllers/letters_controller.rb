@@ -1,7 +1,6 @@
 class LettersController < ApplicationController
   before_action :set_letter, only: [:show, :update]
 
-  # Update to a grab an amount from an index
   def index
     render json: Letter.all
   end
