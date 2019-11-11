@@ -23,6 +23,12 @@ class AccountsController < ApplicationController
       render json: @account.errors
     end
   end
+
+  def unseen
+    @account = Account.find(params[:id])
+    letters_seen = @account.seens.pluck(:letter_id)
+    render json: letters_seen
+  end
 end
 
 class String
