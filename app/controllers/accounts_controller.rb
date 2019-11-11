@@ -3,15 +3,8 @@
 class AccountsController < ApplicationController
   def login
     @account = Account.find_by(email: params[:email])
-<<<<<<< HEAD
-    if @account.nil?
-      render json: {} # Returb Error msg for pw/un
-    elsif @account&.authenticate(params[:password])
-      render json: @account
-=======
     if @account&.authenticate(params[:password])
       render json: { accountId: @account.id, icon: @account.icon}
->>>>>>> master
     else
       render json: @account.errors
     end
