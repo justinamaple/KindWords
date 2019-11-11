@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post '/login' => 'accounts#login'
   post '/signup' => 'accounts#create'
 
-  resources :letters, only: [:index, :create, :show] do
+  resources :letters, only: [:index, :create, :show, :update] do
      resources :responses, only: [:index, :create, :show]
   end 
 
