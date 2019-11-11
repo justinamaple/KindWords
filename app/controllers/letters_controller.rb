@@ -1,5 +1,5 @@
 class LettersController < ApplicationController
-  before_action :set_letter, only: %i[show]
+  before_action :set_letter, only: [:show, :update]
 
   # Update to a grab an amount from an index
   def index
@@ -23,6 +23,14 @@ class LettersController < ApplicationController
     end
   end
 
+  def update 
+    if @letter.update(letter_params)
+      render json: @letter 
+    else 
+      render json: @letter.errors 
+    end 
+  end 
+
   private
 
   # Need to verify here instead of just grabbing the account that
@@ -33,4 +41,8 @@ class LettersController < ApplicationController
   def set_letter
     @letter = Letter.find(params[:id])
   end
+
+  def letter_params
+    params.require(:letter).permit(:burned, :num_views, :num_responses)
+  end 
 end
