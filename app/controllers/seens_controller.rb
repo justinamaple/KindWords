@@ -1,10 +1,9 @@
 class SeensController < ActionController::API
   def seen
     @account = Account.find(params[:account_id])
-    letters_seen = @account.seens.pluck(:letter_id)
-    letters_seen.sort!.reverse!
+    letters_hash = @account.seens.pluck(:letter_id).to_h { |id| [id, true] }
 
-    render json: letters_seen
+    render json: letters_hash
   end
 
   def create
