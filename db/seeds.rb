@@ -12,12 +12,12 @@ Account.destroy_all
 Letter.destroy_all
 Response.destroy_all
 
-account1 = Account.create(email: 'justinamaple@gmail.com', password: 'asdf')
-account2 = Account.create(email: 'kara@gmail.com', password: 'fdsa')
-account3 = Account.create(email: 'brian@gmail.com', password: 'yaya')
-account4 = Account.create(email: '1@gmail.com', password: 'password')
-account5 = Account.create(email: '2@gmail.com', password: 'password')
-account6 = Account.create(email: '3@gmail.com', password: 'password')
+account1 = Account.create(email: 'justinamaple@gmail.com', password: 'asdf', icon: '^.^')
+account2 = Account.create(email: 'kara@gmail.com', password: 'fdsa', icon: '<3')
+account3 = Account.create(email: 'brian@gmail.com', password: 'yaya', icon: '-_-')
+account4 = Account.create(email: '1@gmail.com', password: 'password', icon: '<3')
+account5 = Account.create(email: '2@gmail.com', password: 'password', icon: ':)')
+account6 = Account.create(email: '3@gmail.com', password: 'password', icon: '^.^')
 
 letter1 = account1.letters.create(content: 'so lonely')
 letter1.responses.create(account_id: account2.id, content: 'ill be your friend')
