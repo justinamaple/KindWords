@@ -1,5 +1,13 @@
+# frozen_string_literal: true
+
 class ResponsesController < ApplicationController
+  before_action :set_letter, only: %i[index]
   before_action :set_response, only: %i[show]
+
+  def index
+    render json: @letter.responses
+  end
+
   def show
     render json: @response
   end
@@ -19,6 +27,10 @@ class ResponsesController < ApplicationController
   end
 
   private
+
+  def set_letter
+    @letter = Letter.find(params[:letter_id])
+  end
 
   def set_response
     @response = Response.find(params[:id])

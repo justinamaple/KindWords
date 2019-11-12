@@ -2,7 +2,11 @@ class LettersController < ApplicationController
   before_action :set_letter, only: [:show, :update]
 
   def index
-    render json: Letter.all
+    if params[:account_id]
+      render json: Account.find(params[:account_id]).letters
+    else
+      render json: Letter.all
+    end
   end
 
   def show
@@ -22,13 +26,13 @@ class LettersController < ApplicationController
     end
   end
 
-  def update 
+  def update
     if @letter.update(letter_params)
-      render json: @letter 
-    else 
-      render json: @letter.errors 
-    end 
-  end 
+      render json: @letter
+    else
+      render json: @letter.errors
+    end
+  end
 
   private
 
@@ -43,5 +47,5 @@ class LettersController < ApplicationController
 
   def letter_params
     params.require(:letter).permit(:burned, :num_views, :num_responses)
-  end 
+  end
 end
