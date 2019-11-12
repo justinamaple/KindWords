@@ -1,5 +1,10 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: %i[show]
+
+  def to
+    render json: Letter.find(params[:id]).responses
+  end
+
   def show
     render json: @response
   end

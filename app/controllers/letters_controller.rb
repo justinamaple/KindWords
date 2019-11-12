@@ -9,6 +9,10 @@ class LettersController < ApplicationController
     render json: @letter
   end
 
+  def journal
+    render json: Account.find(params[:id]).letters
+  end
+
   def create
     @letter = Letter.new(
       account_id: params[:account_id],
@@ -22,13 +26,13 @@ class LettersController < ApplicationController
     end
   end
 
-  def update 
+  def update
     if @letter.update(letter_params)
-      render json: @letter 
-    else 
-      render json: @letter.errors 
-    end 
-  end 
+      render json: @letter
+    else
+      render json: @letter.errors
+    end
+  end
 
   private
 
@@ -43,5 +47,5 @@ class LettersController < ApplicationController
 
   def letter_params
     params.require(:letter).permit(:burned, :num_views, :num_responses)
-  end 
+  end
 end
