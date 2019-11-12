@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class LettersController < ApplicationController
-  before_action :set_letter, only: [:show, :update]
+  before_action :set_letter, only: %i[show update]
 
   def index
-    render json: Letter.all
+    if params[:account_id]
+      render json: Account.find(params[:account_id]).letters
+    else
+      render json: Letter.all
+    end
   end
 
   def show
     render json: @letter
-  end
-
-  def journal
-    render json: Account.find(params[:id]).letters
   end
 
   def create
@@ -43,9 +45,5 @@ class LettersController < ApplicationController
   # simply by plugging a random id
   def set_letter
     @letter = Letter.find(params[:id])
-  end
-
-  def letter_params
-    params.require(:letter).permit(:burned, :num_views, :num_responses)
   end
 end
