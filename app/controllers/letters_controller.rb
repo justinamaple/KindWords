@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class LettersController < ApplicationController
-  before_action :set_letter, only: %i[show update]
+  before_action :set_letter, only: [:show, :update]
 
   def index
     if params[:account_id]
@@ -45,5 +43,9 @@ class LettersController < ApplicationController
   # simply by plugging a random id
   def set_letter
     @letter = Letter.find(params[:id])
+  end
+
+  def letter_params
+    params.require(:letter).permit(:burned, :num_views, :num_responses)
   end
 end
