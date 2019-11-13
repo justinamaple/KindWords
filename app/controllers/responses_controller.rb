@@ -16,7 +16,8 @@ class ResponsesController < ApplicationController
     @response = Response.new(
       account_id: params[:account_id],
       letter_id: params[:letter_id],
-      content: params[:content]
+      content: params[:content],
+      icon: params[:icon]
     )
 
     if @response.save

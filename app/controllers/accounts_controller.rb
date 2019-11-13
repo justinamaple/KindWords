@@ -3,10 +3,16 @@
 class AccountsController < ApplicationController
   def login
     @account = Account.find_by(email: params[:email])
+    errors = {
+      'errors': {
+        'incorrect': 'email and/or password'
+      }
+    }
+
     if @account&.authenticate(params[:password])
       render json: { accountId: @account.id, icon: @account.icon }
     else
-      render json: @account.errors
+      render json: errors
     end
   end
 
@@ -20,7 +26,7 @@ class AccountsController < ApplicationController
     if @account.save
       render json: { accountId: @account.id, icon: @account.icon }
     else
-      render json: @account.errors
+      render json: { 'errors': @account.errors }
     end
   end
 end

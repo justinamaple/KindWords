@@ -16,7 +16,8 @@ class LettersController < ApplicationController
   def create
     @letter = Letter.new(
       account_id: params[:account_id],
-      content: params[:content]
+      content: params[:content],
+      icon: params[:icon]
     )
 
     if @letter.save
